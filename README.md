@@ -91,4 +91,17 @@ SSH into the control node and follow the steps below:
 - The URL to navigate to in order to check ELK server 10.1.0.4.49:5601
 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+The commands needed to run the Ansible configuration for the Elk-Server are:
+
+    - ssh AzAdmin@JumpBox(Public IP)
+    - sudo docker container list -a (locate your ansible container)
+    - sudo docker start container (name of the container)
+    - sudo docker attach container (name of the container)
+cd /etc/ansible/
+    - ansible-playbook elk.yml (configures Elk-Server and starts the Elk container on the Elk-Server) wait a couple minutes for the implementation of the Elk-Server
+    - cd /etc/ansible/roles/
+    - ansible-playbook filebeat-playbook.yml (installs Filebeat and Metricbeat)
+    - open a new web browser (http://[your.ELK-VM.External.IP]:5601/app/kibana) This will bring up the Kibana Web Portal
+    - check the Module status for file beat and metric beat to see their data receiving.
+
+** You will need to ensure all files are properly placed before running the ansible-playbooks.
