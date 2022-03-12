@@ -23,14 +23,24 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
-
+- What aspect of security do load balancers protect? 
+    - Load balancers protects the system from DDoS attacks by shifting attack traffic.
+  	- Load Balancing contributes to the Availability aspect of security in regards to the CIA Triad.
+ 
+- What is the advantage of a jump box?
+    - The advantage of a jump box is to give access to the user from a single node that can be secured and monitored.
+   	- The advantage of a Jump Box is the orgination point for launching Administrative Tasks. This ultimately sets the JumpBox as a SAW (Secure Admin Workstation). All Administrators when conducting any Administrative Task will be required to connect to the Jump Box (SAW) before perfoming any task/assignment.
+   	
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the files, logs and system metrics.
-- _TODO: What does Filebeat watch for?_
-- _TODO: What does Metricbeat record?_
+- What does Filebeat watch for?
+    - Filebeat watches for any information in the file system which has been changed and when it has.  
+   	- Filebeat watches for log files/locations and collects log events
+
+- What does Metricbeat record?
+    - Metricbeat takes the metrics and statistics that collects and ships them to the output you specify.
+   	- Metricbeat records metric and statistical data from the operating system and from services running on the server.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
@@ -51,7 +61,8 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- What is the main advantage of automating configuration with Ansible?
+- Automating configuration with Ansible allows you to deploy to multiple servers using one single playbook.
 
 The playbook implements the following tasks:
 - Installs Docker, which intern facilitates instalation of containers
@@ -66,15 +77,16 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _Web-1 10.0.0.5_
-- _Web-2 10.0.0.6_
+    - Web-1 10.0.0.5
+    - Web-2 10.0.0.6
 
 We have installed the following Beats on these machines:
-- _filebeat_
-- _metricbeat_
+    - filebeat
+    - metricbeat
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+  	- Filebeat monitors log files or locations you specify, collects log events, and forwards them either to Elasticsearch or Logstash for indexing.
+   	- Metricbeat collects metrics from the operating system and from services running on the server.
 
 ### Using the Playbook
 
